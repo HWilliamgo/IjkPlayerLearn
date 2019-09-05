@@ -1,0 +1,2 @@
+include ':app', ':ijkvideoview'
+rootProject.name='IjkPlayerLearn'
