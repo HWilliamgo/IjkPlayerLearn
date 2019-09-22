@@ -4,20 +4,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
+import android.widget.VideoView
 import com.blankj.utilcode.util.LogUtils
-import com.william.ijkvideoview.widget.media.IjkVideoView
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_android_media_player.*
 
-class MainActivity : AppCompatActivity() {
+class AndroidMediaPlayerActivity : AppCompatActivity() {
 
-    private val url =
-        ""
+    private val url = hls
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_android_media_player)
 
-        val videoView = IjkVideoView(this)
+        val videoView = VideoView(this)
         fl_video_container.addView(
             videoView,
             ViewGroup.LayoutParams.MATCH_PARENT,
@@ -36,8 +35,9 @@ class MainActivity : AppCompatActivity() {
             return@setOnInfoListener false
         }
 
-        videoView.setVideoURI(Uri.parse(url))
+        videoView.setVideoURI(
+            Uri.parse(url)
+        )
         videoView.start()
-
     }
 }
